@@ -1,3 +1,5 @@
+import java.util.*;
+import java.io.*;
 public class SingleLinkedList {
 	private ListNode head;
 	
@@ -37,6 +39,18 @@ public class SingleLinkedList {
 		System.out.println("The Length of the Single Linked List is: "+count);
 	}
 	
+	public void insertfirst()
+	{
+		int value;
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the value of node you want to insert at the beginning");
+		value=sc.nextInt();
+		ListNode newnode=new ListNode(value);
+		newnode.next=head;
+		head=newnode;
+		
+	}
+	
 	public static void main(String args[])
 	{
 		SingleLinkedList sll=new SingleLinkedList();
@@ -51,5 +65,7 @@ public class SingleLinkedList {
 		
 		sll.Display();
 		sll.length();
+		sll.insertfirst();
+		sll.Display();
 	}
 }
