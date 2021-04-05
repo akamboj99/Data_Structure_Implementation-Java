@@ -70,6 +70,36 @@ public class SingleLinkedList {
 		current.next=newnode;
 	}
 	
+	public void insert()
+	{
+		int value,pos;
+                int count=1; 
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the value of node you want to insert at the end");
+		value=sc.nextInt();
+		System.out.println("Enter the position where you want to insert the node");
+		pos=sc.nextInt();
+		
+		ListNode node=new ListNode(value);
+		if(pos==1)
+		{
+			node.next=head;
+			head=node;
+		}
+		else
+		{
+			ListNode previous=head;
+			while(count<pos-1)
+			{
+				previous=previous.next;
+				count++;
+			}
+			ListNode current=previous.next;
+			node.next=current;
+			previous.next=node;
+		}
+	}
+	
 	public static void main(String args[])
 	{
 		SingleLinkedList sll=new SingleLinkedList();
@@ -82,11 +112,17 @@ public class SingleLinkedList {
 		second.next=third;
 		third.next=fourth;
 		
+		sll.Display(); //To display the elements of the linked list
+		
+		sll.length(); //To display the length of linked list
+		
+		sll.insertfirst(); // To Insert element at beginning
 		sll.Display();
-		sll.length();
-		sll.insertfirst();
+		
+		sll.insertlast(); // To Insert element at the end
 		sll.Display();
-		sll.insertlast();
+		
+		sll.insert(); // To Insert element at the given position
 		sll.Display();
 	}
 }
