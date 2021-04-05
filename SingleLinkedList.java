@@ -104,7 +104,7 @@ public class SingleLinkedList {
 	{
 		if(head==null)
 		{
-			System.out.println("No element found");
+			System.out.println("No element found!!");
 		}
 		else
 		{
@@ -112,6 +112,48 @@ public class SingleLinkedList {
 			head=head.next;
 			temp.next=null;
 			System.out.println("The element deleted is:"+temp.data);
+		}
+	}
+	
+	public void deletelast()
+	{
+		if(head==null || head.next==null)
+		{
+			System.out.println("No element found!!");
+		}
+		ListNode current=head;
+		ListNode previous=null;
+		while(current.next!=null)
+		{
+			previous=current;
+			current=current.next;
+		}
+		previous.next=null;
+		System.out.println("The element deleted from last is:"+current.data);
+	}
+	
+	public void delete()
+	{
+		int pos;
+        int count=1; 
+        Scanner sc=new Scanner(System.in);
+
+        System.out.println("Enter the position where you want to delete the node");
+        pos=sc.nextInt();
+		if(pos==1)
+		{
+			head=head.next;
+		}
+		else
+		{
+			ListNode previous=head;
+			while(count<pos-1)
+			{
+				previous=previous.next;
+				count++;
+			}
+			ListNode current=previous.next;
+			previous.next=current.next;
 		}
 	}
 	
@@ -131,16 +173,22 @@ public class SingleLinkedList {
 		
 		sll.length(); //To display the length of linked list
 		
-		sll.insertfirst(); // To Insert element at beginning
+		sll.insertfirst(); // To insert element at beginning
 		sll.Display();
 		
-		sll.insertlast(); // To Insert element at the end
+		sll.insertlast(); // To insert element at the end
 		sll.Display();
 		
-		sll.insert(); // To Insert element at the given position
+		sll.insert(); // To insert element at the given position
 		sll.Display();
 		
 		sll.deletefirst(); //To delete the first element of the linked list
+		sll.Display();
+		
+		sll.deletelast(); //To delete the last element of the linked list
+		sll.Display();
+		
+		sll.delete(); //To delete the element at the given position
 		sll.Display();
 	}
 }
