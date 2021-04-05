@@ -100,6 +100,21 @@ public class SingleLinkedList {
 		}
 	}
 	
+	public void deletefirst()
+	{
+		if(head==null)
+		{
+			System.out.println("No element found");
+		}
+		else
+		{
+			ListNode temp=head;
+			head=head.next;
+			temp.next=null;
+			System.out.println("The element deleted is:"+temp.data);
+		}
+	}
+	
 	public static void main(String args[])
 	{
 		SingleLinkedList sll=new SingleLinkedList();
@@ -123,6 +138,9 @@ public class SingleLinkedList {
 		sll.Display();
 		
 		sll.insert(); // To Insert element at the given position
+		sll.Display();
+		
+		sll.deletefirst(); //To delete the first element of the linked list
 		sll.Display();
 	}
 }
