@@ -222,7 +222,7 @@ public class SingleLinkedList {
 			System.out.println("Element found!!");
 		}
 		else {
-			System.out.println("Not element found!!");
+			System.out.println("No element found!!");
 		}
 	}
 }
