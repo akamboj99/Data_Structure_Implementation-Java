@@ -208,6 +208,18 @@ public class SingleLinkedList {
 		}
 	}
 	
+	public void middle()
+	{
+		ListNode slowptr=head;
+		ListNode fastptr=head;
+		while(fastptr!=null && fastptr.next!=null)
+		{
+			slowptr=slowptr.next;
+			fastptr=fastptr.next.next;
+		}
+		System.out.println("The middle element is: "+slowptr.data);
+	}
+	
 	public static void main(String args[])
 	{
 		SingleLinkedList sll=new SingleLinkedList();
@@ -251,5 +263,7 @@ public class SingleLinkedList {
 		}
 		
 		sll.reverse(); //To reverse the linked list
+		
+		sll.middle(); // To find the middle element 
 	}
 }
