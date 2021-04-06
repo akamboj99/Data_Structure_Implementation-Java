@@ -243,6 +243,36 @@ public class SingleLinkedList {
 		System.out.println("The value at "+n+" position from the end is:"+mainptr.data);
 	}
 	
+	public void removeitem_bykey()
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the element you want to delete");
+		int key=sc.nextInt();
+		
+		ListNode current=head;
+		ListNode previous=null;
+		
+		if(current!=null && current.data==key)
+		{
+			head=current.next;
+			return;
+		}
+		
+		while(current!=null && current.data!=key)
+		{
+			previous=current;
+			current=current.next;
+		}
+		if(current==null)
+		{
+			return;
+		}
+		
+		
+			previous.next=current.next;
+		
+	}
+	
 	public static void main(String args[])
 	{
 		SingleLinkedList sll=new SingleLinkedList();
@@ -289,6 +319,9 @@ public class SingleLinkedList {
 		
 		sll.middle(); // To find the middle element 
 		
-		sll.nthnode(); // to find nth node from the end
+		sll.nthnode();
+		
+		sll.removeitem_bykey(); // Remove element by its value
+		sll.Display();
 	}
 }
