@@ -75,7 +75,7 @@ public class SingleLinkedList {
 		int value,pos;
                 int count=1; 
 		Scanner sc=new Scanner(System.in);
-		System.out.println("Enter the value of node you want to insert at the end");
+		System.out.println("Enter the value of node you want to insert ");
 		value=sc.nextInt();
 		System.out.println("Enter the position where you want to insert the node");
 		pos=sc.nextInt();
@@ -157,6 +157,32 @@ public class SingleLinkedList {
 		}
 	}
 	
+	public boolean search()
+	{
+		int element;
+		Scanner sc=new Scanner(System.in);
+		
+		if(head==null) {
+			return false;
+		}
+
+        System.out.println("Enter the element you want to search");
+        element=sc.nextInt();
+		ListNode current= head;
+		
+		while(current!=null)
+		{
+			if(current.data==element)
+			{
+				return true;
+			}
+			current=current.next;
+		}
+		return false;
+	}
+	
+	
+
 	public static void main(String args[])
 	{
 		SingleLinkedList sll=new SingleLinkedList();
@@ -190,5 +216,13 @@ public class SingleLinkedList {
 		
 		sll.delete(); //To delete the element at the given position
 		sll.Display();
+		
+		if(sll.search()) // To search if the element exists or not
+		{
+			System.out.println("Element found!!");
+		}
+		else {
+			System.out.println("Not element found!!");
+		}
 	}
 }
