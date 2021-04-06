@@ -220,6 +220,29 @@ public class SingleLinkedList {
 		System.out.println("The middle element is: "+slowptr.data);
 	}
 	
+	public void nthnode()
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the node you want to find from the end");
+		int n=sc.nextInt();
+		ListNode mainptr=head;
+		ListNode refptr=head;
+		int count=0;
+		while(count<n)
+		{
+			refptr=refptr.next;
+			count++;
+		}
+		
+		while(refptr!=null)
+		{
+			mainptr=mainptr.next;
+			refptr=refptr.next;
+		}
+		
+		System.out.println("The value at "+n+" position from the end is:"+mainptr.data);
+	}
+	
 	public static void main(String args[])
 	{
 		SingleLinkedList sll=new SingleLinkedList();
@@ -265,5 +288,7 @@ public class SingleLinkedList {
 		sll.reverse(); //To reverse the linked list
 		
 		sll.middle(); // To find the middle element 
+		
+		sll.nthnode(); // to find nth node from the end
 	}
 }
