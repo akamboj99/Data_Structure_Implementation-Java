@@ -1,5 +1,6 @@
 import java.util.*;
 import java.io.*;
+
 public class SingleLinkedList {
 	private ListNode head;
 	
@@ -181,8 +182,32 @@ public class SingleLinkedList {
 		return false;
 	}
 	
+	public void reverse()
+	{
+		ListNode current=head;
+		ListNode previous=null;
+		ListNode next=null;
+		
+		while(current!=null)
+		{
+			next=current.next;
+			current.next=previous;
+			previous=current;
+			current=next;
+		}
+		printreverse(previous);
+	}
 	
-
+	public void printreverse(ListNode previous)
+	{
+		ListNode current=previous;
+		while(current!=null)
+		{
+			System.out.println(current.data);
+			current=current.next;
+		}
+	}
+	
 	public static void main(String args[])
 	{
 		SingleLinkedList sll=new SingleLinkedList();
@@ -222,7 +247,9 @@ public class SingleLinkedList {
 			System.out.println("Element found!!");
 		}
 		else {
-			System.out.println("No element found!!");
+			System.out.println("Not element found!!");
 		}
+		
+		sll.reverse(); //To reverse the linked list
 	}
 }
