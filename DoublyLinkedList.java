@@ -108,6 +108,26 @@ public class DoublyLinkedList {
 		length--;
 	}
 	
+	public void deletelast()
+	{
+		if(isEmpty())
+		{
+			throw new NoSuchElementException();
+		}
+		ListNode temp=tail;
+		if(head==tail)
+		{
+			head=null;
+		}
+		else
+		{
+			tail.previous.next=null;
+		}
+		tail=tail.previous;
+		temp.previous=null;
+		length--;
+	}
+	
 	
 	public static void main(String args[])
 	{
@@ -125,6 +145,9 @@ public class DoublyLinkedList {
 		dll.displayforward();
 		
 		dll.deletefirst();
+		dll.displayforward();
+		
+		dll.deletelast();
 		dll.displayforward();
 	}
 }
