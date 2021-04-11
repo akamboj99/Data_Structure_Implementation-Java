@@ -44,9 +44,26 @@ public class CircularLinkedList {
 		last=fourth;
 	}
 	
+	public void print()
+	{
+		if(last==null)
+		{
+			return;
+		}
+		ListNode first=last.next;
+		while(first!=last)
+		{
+			System.out.println(first.data);
+			first=first.next;
+		}
+		System.out.println(first.data);
+	}
+	
 	public static void main(String args[])
 	{
 		CircularLinkedList cll=new CircularLinkedList();
 		cll.createCLL();
+		
+		cll.print();
 	}
 }
