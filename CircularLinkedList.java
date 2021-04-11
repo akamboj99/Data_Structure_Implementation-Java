@@ -1,3 +1,5 @@
+import java.util.*;
+import java.io.*;
 
 public class CircularLinkedList {
 	private ListNode last;
@@ -44,7 +46,7 @@ public class CircularLinkedList {
 		last=fourth;
 	}
 	
-	public void print()
+	public void display()
 	{
 		if(last==null)
 		{
@@ -59,11 +61,79 @@ public class CircularLinkedList {
 		System.out.println(first.data);
 	}
 	
+	public void insertfirst()
+	{
+		System.out.println("Enter the element you want to insert at the beginning");
+		Scanner sc=new Scanner(System.in);
+		int val;
+		val=sc.nextInt();
+		ListNode temp=new ListNode(val);
+		if(last==null)
+		{
+			last=temp;
+		}
+		else{
+			temp.next=last.next;
+		}
+		last.next=temp;
+		length++;
+	}
+	
+	public void insertlast()
+	{
+		System.out.println("Enter the element you want to insert at the last");
+		Scanner sc=new Scanner(System.in);
+		int val;
+		val=sc.nextInt();
+		ListNode temp=new ListNode(val);
+		
+		if(last==null)
+		{
+			last=temp;
+			last.next=last;
+		}
+		else {
+			temp.next=last.next;
+			last.next=temp;
+			last=temp;
+		}
+		length++;
+	}
+	
+	public void deletefirst()
+	{
+		if(isEmpty())
+		{
+			return;
+		}
+		ListNode temp=last.next;
+		if(last.next==last)
+		{
+			last=null;
+		}
+		else {
+			last.next=temp.next;
+		}
+		temp.next=null;
+		length--;
+	}
+	
+	
 	public static void main(String args[])
 	{
 		CircularLinkedList cll=new CircularLinkedList();
 		cll.createCLL();
 		
-		cll.print();
+		cll.display(); // To print elements of linked list
+		
+		cll.insertfirst(); //To insert the elements at the beginning  
+		cll.display();
+		
+		cll.insertlast(); //To insert the elements at the last
+		cll.display();
+		
+		cll.deletefirst(); //To delete the first element
+		System.out.println("After deleting first node, list looks like:");
+		cll.display();
 	}
 }
