@@ -21,6 +21,26 @@ public class Arrays {
 		min_element(arr); //To find minimum elements
 		
 		movezero(arr); //Move all zeros at the end
+		
+		
+		//Resize Array
+		System.out.println("Enter the new size of the array");
+		int s=sc.nextInt();
+		arr=resize(arr,s);
+		System.out.println("Resized array size is: "+arr.length);
+		display(arr);
+	}
+	
+	public static int[] resize(int[] arr,int s)
+	{
+		int temp[]=new int[s];
+		for(int i=0;i<arr.length;i++)
+		{
+			temp[i]=arr[i];
+		}
+		
+		arr=temp;
+		return arr;
 	}
 	
 	public static void movezero(int arr[])
