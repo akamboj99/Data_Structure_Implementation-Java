@@ -49,7 +49,7 @@ public class Queue {
 		ListNode current=front;
 		if(isEmpty())
 		{
-			return;
+			System.out.println("No element!!");
 		}
 		else {
 			while(current!=null)
@@ -60,16 +60,40 @@ public class Queue {
 		}
 	}
 	
+	public void dequeue()
+	{
+		if(isEmpty())
+		{
+			System.out.println("No element found!!");
+		}
+		int result=front.data;
+		front=front.next;
+		if(front==null)
+		{
+			rear=null;
+		}
+		
+		length--;
+		System.out.println("Element deleted is " +result);
+		display();
+	}
 	
 	public static void main(String args[])
 	{
 		Queue q=new Queue();
 		
+		// To push data into queue
 		q.Enqueue();
 		q.Enqueue();
 		q.Enqueue();
 		
+		//To display queue
 		q.display();
+		
+		//To delete the data from queue
+		q.dequeue();
+		q.dequeue();
+		q.dequeue();
 	}
 	
 }
