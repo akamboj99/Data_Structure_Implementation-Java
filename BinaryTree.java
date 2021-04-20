@@ -1,4 +1,3 @@
-
 public class BinaryTree {
 	private TreeNode root;
 	
@@ -28,8 +27,23 @@ public class BinaryTree {
 		second.right=fifth;
 	}
 	
+	public void preorder(TreeNode root)
+	{
+		if(root==null)
+		{
+			return;
+		}
+		
+		System.out.println(root.data+ " ");
+		preorder(root.left);
+		preorder(root.right);
+		
+	}
+	
 	public static void main(String args[])
 	{
-		
+		BinaryTree bt=new BinaryTree();
+		bt.createBinaryTree();
+		bt.preorder(bt.root);
 	}
 }
