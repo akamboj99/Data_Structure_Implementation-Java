@@ -40,10 +40,26 @@ public class BinaryTree {
 		
 	}
 	
+	public void inorder(TreeNode root)
+	{
+		if(root==null)
+		{
+			return;
+		}
+		inorder(root.left);
+		System.out.println(root.data + " ");
+		inorder(root.right);
+	}
+	
 	public static void main(String args[])
 	{
 		BinaryTree bt=new BinaryTree();
 		bt.createBinaryTree();
+		
+		System.out.println("Pre order Traversal: ");
 		bt.preorder(bt.root);
+		
+		System.out.println("In order Traversal: ");
+		bt.inorder(bt.root);
 	}
 }
