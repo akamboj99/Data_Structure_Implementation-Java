@@ -34,7 +34,7 @@ public class BinaryTree {
 			return;
 		}
 		
-		System.out.println(root.data+ " ");
+		System.out.print(root.data+ " ");
 		preorder(root.left);
 		preorder(root.right);
 		
@@ -47,8 +47,19 @@ public class BinaryTree {
 			return;
 		}
 		inorder(root.left);
-		System.out.println(root.data + " ");
+		System.out.print(root.data + " ");
 		inorder(root.right);
+	}
+	
+	public void postorder(TreeNode root)
+	{
+		if(root==null)
+		{
+			return;
+		}
+		postorder(root.left);
+		postorder(root.right);
+		System.out.print(root.data+" ");
 	}
 	
 	public static void main(String args[])
@@ -59,7 +70,10 @@ public class BinaryTree {
 		System.out.println("Pre order Traversal: ");
 		bt.preorder(bt.root);
 		
-		System.out.println("In order Traversal: ");
+		System.out.println("\nIn order Traversal: ");
 		bt.inorder(bt.root);
+		
+		System.out.println("\nPost Order Traversal: ");
+		bt.postorder(bt.root);
 	}
 }
