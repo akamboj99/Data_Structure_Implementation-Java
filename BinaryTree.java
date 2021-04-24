@@ -62,6 +62,30 @@ public class BinaryTree {
 		System.out.print(root.data+" ");
 	}
 	
+	public int findmax() {
+		return findmax(root);
+	}
+	
+	public int findmax(TreeNode root)
+	{
+		if(root==null)
+		{
+			return Integer.MIN_VALUE;
+		}
+		int result=root.data;
+		int left=findmax(root.left);
+		int right=findmax(root.right);
+		if(left<right)
+		{
+			result=right;
+		}
+		else
+		{
+			result=left;
+		}
+		return result;
+	}
+	
 	public static void main(String args[])
 	{
 		BinaryTree bt=new BinaryTree();
@@ -70,10 +94,15 @@ public class BinaryTree {
 		System.out.println("Pre order Traversal: ");
 		bt.preorder(bt.root);
 		
+		System.out.println("\n");
 		System.out.println("\nIn order Traversal: ");
 		bt.inorder(bt.root);
 		
+		System.out.println("\n");
 		System.out.println("\nPost Order Traversal: ");
 		bt.postorder(bt.root);
+		
+		System.out.println("\n");
+		System.out.println("Maximum value is: " +bt.findmax() );
 	}
 }
