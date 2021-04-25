@@ -32,6 +32,6 @@ public class SortedMatrix {
 				           {32,33,39,51}
 		                 };
 		SortedMatrix sm=new SortedMatrix();
-		sm.search(matrix, matrix.length,90);
+		sm.search(matrix, matrix.length,32);
 	}
 }
